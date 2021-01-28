@@ -17,9 +17,9 @@ export default function NewDeviceScreen({ navigation }) {
     function addDevice(name, place, command) {
         // console.log(name);
         setDevice({ name: name, place: place, command: command });
-        // console.log(device);
+        console.log(device);
 
-        navigation.navigate('Devices', { device })
+        navigation.navigate('Devices', { device: device })
     }
 
     return (
@@ -29,23 +29,30 @@ export default function NewDeviceScreen({ navigation }) {
             </View>
             <View style={styles.listContainer}>
                 <TextInput style={styles.input}
-                    onChangeText={text => setName(text)}>
+                    onChangeText={text => setName(text)}
+                    placeholder="Name">
                 </TextInput>
 
                 <TextInput style={styles.input}
-                    onChangeText={text => setPlace(text)}>
+                    onChangeText={text => setPlace(text)}
+                    placeholder="Place">
                 </TextInput>
 
                 <TextInput style={styles.input}
-                    onChangeText={text => setCommand(text)}>
+                    onChangeText={text => setCommand(text)}
+                    placeholder="Command">
                 </TextInput>
 
                 <TouchableOpacity style={styles.button}
-                    onPress={() => addDevice(name, place, command)}>
+                    // onPress={() => addDevice(name, place, command)}>
+                    // onPress={() => console.log("!!" + name)}>
+                    onPress={() => navigation.navigate('Devices',
+                        { name: name, place: place, command: command })}>
                     <Text style={styles.title}>Save</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}
-                    onPress={() => navigation.navigate('Devices')}>
+                // onPress={() => navigation.navigate('Devices')}>
+                >
                     <Text style={styles.title}>Cancel</Text>
                 </TouchableOpacity>
             </View>

@@ -21,9 +21,20 @@ let DATA = [
 ];
 
 export default function DevicesScreen({ navigation, route }) {
-    let device = route.params;
+    let name = route.name;
+    let place = route.place;
+    let command = route.command;
+
+    console.log("@@" + name);
+    let device = {
+        name: name,
+        place: place,
+        command: command
+    };
+    // let { device } = route.params?.device;
+
     // console.log("###");
-    console.log("###" + device.command);
+    console.log("###" + device.name);
     DATA.push(device);
     return (
         <View style={styles.container}>
